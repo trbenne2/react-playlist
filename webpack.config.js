@@ -1,5 +1,5 @@
 // path module by node. allows to get correct directory
-var path = require('path');
+const path = require('path');
 
 // TODO: net ninja webpack video series
 /* all settings for webpack
@@ -12,20 +12,20 @@ module.exports = {
     output: {
         // the output file is bundle.js with all transform code
         // public path is what user sees
-        path: path.resolve(__dirname, dist) + '/app',
+        path: path.resolve(__dirname, 'dist') + '/app',
         filename: 'bundle.js',
         publicPath: '/app/'
     },
     // configure babel 2 loaders for jsx and css
     module:{
-        loaders: [
+        rules: [
             {
                 // run converter on src folder that contains js
                 test: /\.js$/,
                 include: path.resolve(__dirname, 'src'),
                 loader: 'babel-loader',
                 query:{
-                    presets: ['react', 'es2015']
+                    presets: ['@babel/react', '@babel/preset-env']
                 }
             },
             {
